@@ -39,10 +39,6 @@ a:hover {
   background: rgba(0, 0, 0, 0.3);
 }
 
-.toggleNav {
-  display: none;
-}
-
 img {
   width: 100%;
 }
@@ -52,20 +48,17 @@ img {
   margin: 0 auto;
 }
 
-form {
-  display: flex;
-  justify-content: center;
-}
-
-input {
+input,
+select {
   padding: 10px;
   border: 0;
   margin: 0px 5px;
-  flex: 1 1 33.3333333333%;
 }
-
-input[type="submit"] {
-  flex-basis: 15%;
+select:hover {
+  cursor: pointer;
+}
+option {
+  font-size: 1.5rem;
 }
 
 section,
@@ -74,172 +67,80 @@ footer {
   background: rgba(0, 0, 0, 0.2);
   padding: 20px;
   margin: 20px 0;
-  color: palegreen;
+  color: white;
   font-weight: 100;
 }
 
-.slider-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
+.week-selector {
+  width: 300px;
 }
 
-.slider-nav li {
-  flex: 2;
-  display: flex;
-}
-
-.slider-nav .arrow {
-  flex: 1;
-  font-size: 1.5rem;
-}
-.slider-nav a {
-  flex-basis: 100%;
-  display: flex;
-}
-
-.slider-nav a span {
-  display: block;
+.scoreboard {
   width: 100%;
-  align-self: center;
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
 }
-.plan ul {
+
+.scoreboard--item {
+  flex: 1 1 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scoreboard--item--team {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9));
+  padding: 9px;
+  display: flex;
+  justify-content: space-between;
+}
+.scoreboard--item--team:hover {
+  cursor: pointer;
+}
+.scoreboard--item--team .teamname {
+  font-weight: bold;
+}
+.scoreboard--item--team .score {
+  text-align: right;
+}
+
+.game ul {
+  list-style-type: none;
   margin: 0;
   padding: 0;
-  list-style: none;
+}
+.game {
+  display: flex;
+  text-align: left;
 }
 
-.plan ul li {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+.team {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
   padding: 10px;
 }
 
-.plan ul li:last-child {
-  border-bottom: 0;
-}
-
-.plan a {
-  text-decoration: none;
-  background: #feff00;
-  padding: 10px;
-  color: black;
-  border-radius: 4px;
-  width: auto;
-  min-width: 100px;
-}
-
-.plan h2 {
-  text-transform: uppercase;
-  color: white;
-  letter-spacing: 2px;
-  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1);
-}
-
-.price {
-  font-size: 50px;
-  font-family: serif;
-  margin: 10px 0;
-}
-
-.pricing-grid {
-  max-width: 750px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-}
-
-.plan {
-  background: rgba(255, 255, 255, 0.2);
-  margin: 20px;
-  padding: 20px;
-  border-radius: 4px;
-  flex: 1;
-  display: flex;
-  flex-wrap: wrap;
-}
-.plan > * {
+.team > * {
   flex: 1 1 100%;
 }
-.plan .cta {
+.team:last-child > * {
   align-self: flex-end;
 }
-
+.team--name {
+  font-size: 2rem;
+  -webkit-transform: skewY(183deg);
+          transform: skewY(183deg);
+}
+.team:last-child .team--name {
+  -webkit-transform: skewY(-183deg);
+          transform: skewY(-183deg);
+}
+.team--logo {
+  min-width: 100%;
+  min-height: 200px;
+  border: 1px solid white;
+}
 /* Flex Container */
-.flex-nav ul {
-  border: 1px solid black;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-.flex-nav li {
-  flex: 3;
-}
-
-.flex-nav .social {
-  flex: 1;
-}
-
-@media all and (max-width: 1000px) {
-  .flex-nav ul {
-    flex-wrap: wrap;
-  }
-  .flex-nav li {
-    flex: 1 1 50%;
-  }
-}
-
-@media all and (max-width: 700px) {
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-  }
-  .wrapper > * {
-    order: 100;
-  }
-  .flex-nav {
-    order: 1;
-  }
-  .flex-nav ul {
-    max-height: 0px;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out;
-  }
-  .toggleNav {
-    display: block;
-  }
-  .flex-nav ul.open {
-    max-height: 600px;
-  }
-  .flex-nav li {
-    flex-basis: 100%;
-  }
-  .top {
-    order: 2;
-  }
-  .details {
-    order: 3;
-  }
-  .signup {
-    order: 4;
-  }
-  form {
-    flex-wrap: wrap;
-  }
-  input {
-    margin-bottom: 5px;
-  }
-  .slider-nav li {
-    display: none;
-  }
-
-  .slider-nav .arrow {
-    display: flex;
-    flex: 1;
-  }
-}
 
 @media all and (max-width: 455px) {
   form {
