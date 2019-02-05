@@ -1,4 +1,10 @@
 /* Some CSS Setup - nothing to do with flexbox */
+:root {
+  --black-gradient: linear-gradient(0deg,rgb(0,0,0),rgb(0,0,0),rgb(90, 90, 90));
+  --black-hover-gradient: linear-gradient(0deg,rgb(0,0,0), rgb(90, 90, 90));
+  --black-border-radius: 2px;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -116,27 +122,78 @@ footer {
 .team {
   flex: 1 1 50%;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   padding: 10px;
 }
 
 .team > * {
   flex: 1 1 100%;
 }
-.team:last-child > * {
-  align-self: flex-end;
-}
+
 .team--name {
   font-size: 2rem;
   transform: skewY(183deg);
 }
 .team:last-child .team--name {
   transform: skewY(-183deg);
+  text-align: right;
 }
 .team--logo {
   min-width: 100%;
   min-height: 200px;
   border: 1px solid white;
+}
+
+.team--player-deck {
+  border: 1px solid red;
+  display: flex;
+  flex-wrap: wrap;
+}
+.team--player-deck div {
+  flex: 1 1 100%;
+}
+.team--player-deck--controls {
+  width: 100%;
+  order: 2;
+}
+.team--player-deck--controls ul {
+  display: flex;
+  justify-content: space-between;
+}
+.team--player-deck--controls li {
+  width: 50px;
+  padding: 10px;
+  text-align: center;
+  background-image: var(--black-gradient);
+  border-radius: var(--black-border-radius);
+}
+.team--player-deck--controls li:hover {
+  background-image:  var(--black-hover-gradient);
+  cursor: pointer;
+}
+.team--player-deck--positions {
+  width: 100%;
+  order: 3;
+}
+.team--player-deck--positions ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.team--player-deck--positions li {
+  flex: 1 1 25%;
+  text-align: center;
+  padding: 20px 0px;
+  background-image:  var(--black-gradient);
+  border-radius: var(--black-border-radius);
+}
+.team--player-deck--positions li:hover {
+  background-image:  var(--black-hover-gradient);
+  cursor: pointer;
+}
+.team--player-deck--position {
+  width: 100%;
+  order: 1;
 }
 /* Flex Container */
 
