@@ -1,7 +1,12 @@
 /* Some CSS Setup - nothing to do with flexbox */
 :root {
-  --black-gradient: linear-gradient(0deg,rgb(0,0,0),rgb(0,0,0),rgb(90, 90, 90));
-  --black-hover-gradient: linear-gradient(0deg,rgb(0,0,0), rgb(90, 90, 90));
+  --black-gradient: linear-gradient(
+    0deg,
+    rgb(0, 0, 0),
+    rgb(0, 0, 0),
+    rgb(90, 90, 90)
+  );
+  --black-hover-gradient: linear-gradient(0deg, rgb(0, 0, 0), rgb(90, 90, 90));
   --black-border-radius: 2px;
 }
 
@@ -124,20 +129,19 @@ footer {
   display: flex;
   flex-wrap: wrap;
   padding: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .team > * {
   flex: 1 1 100%;
 }
-
 .team--name {
   font-size: 2rem;
-  -webkit-transform: skewY(183deg);
-          transform: skewY(183deg);
+  line-height: 1;
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.2);
 }
+
 .team:last-child .team--name {
-  -webkit-transform: skewY(-183deg);
-          transform: skewY(-183deg);
   text-align: right;
 }
 .team--logo {
@@ -147,9 +151,9 @@ footer {
 }
 
 .team--player-deck {
-  border: 1px solid red;
   display: flex;
   flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 .team--player-deck div {
   flex: 1 1 100%;
@@ -170,7 +174,7 @@ footer {
   border-radius: var(--black-border-radius);
 }
 .team--player-deck--controls li:hover {
-  background-image:  var(--black-hover-gradient);
+  background-image: var(--black-hover-gradient);
   cursor: pointer;
 }
 .team--player-deck--positions {
@@ -186,16 +190,95 @@ footer {
   flex: 1 1 25%;
   text-align: center;
   padding: 20px 0px;
-  background-image:  var(--black-gradient);
+  background-image: var(--black-gradient);
   border-radius: var(--black-border-radius);
 }
 .team--player-deck--positions li:hover {
-  background-image:  var(--black-hover-gradient);
+  background-image: var(--black-hover-gradient);
   cursor: pointer;
 }
 .team--player-deck--position {
   width: 100%;
   order: 1;
+}
+.player {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 25px;
+}
+.player-image {
+  width: 100%;
+  max-height: 500px;
+  overflow: hidden;
+}
+.player-image img {
+  -webkit-transform: translateX(20%);
+          transform: translateX(20%);
+}
+.player-copy {
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  width: 50%;
+  height: 100%;
+}
+.team:last-child .player-copy {
+  right: 0;
+}
+.player-copy div {
+  flex: 1 1 100%;
+}
+.player-name {
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.2);
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+.player-ovr {
+  font-size: 5rem;
+  text-align: center;
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.2);
+}
+.player-ovr::before {
+  display: inline-block;
+  content: "OVR";
+  -webkit-transform: rotateZ(-90deg) translateX(-65%) translateY(-120%);
+          transform: rotateZ(-90deg) translateX(-65%) translateY(-120%);
+  padding: 4px;
+  background-color: white;
+  color: black;
+  font-size: 0.8rem;
+  font-weight: 900;
+  position: absolute;
+}
+.team:last-child .player-image img {
+  -webkit-transform: translateX(-20%);
+          transform: translateX(-20%);
+}
+.player-ratings ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.player-rating {
+  flex: 1 1 25%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.player-rating__category {
+  padding: 4px;
+  background-image: var(--black-hover-gradient);
+  font-weight: 600;
+}
+.player-rating__rating {
+  padding: 14px;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-weight: 600;
 }
 /* Flex Container */
 
